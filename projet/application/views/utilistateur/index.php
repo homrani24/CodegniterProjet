@@ -10,8 +10,8 @@
             if (is_array($produit) || is_object($produit))
             {
 
-                foreach ($produit as $item) {
-                    extract($item);
+            foreach ($produit as $item) {
+                extract($item);
 
                     ?>
                     <div class="popular">
@@ -26,14 +26,7 @@
                         <p class="popular-info">
                             <a href="#" class="popular-categ"></a>
                             <span class="popular-price">$<?php echo $PRIX; ?></span>
-                            <?php
-                            echo form_open('cart/add');
-                            echo form_hidden('id', $ID_PROD);
-                            echo form_hidden('name', $NOM_PROD);
-                            echo form_hidden('price', $PRIX);
-                            echo form_submit('action', 'Ajouter au panier');
-                            echo form_close();
-                            ?>
+
                         </p>
                     </div>
                 <?php }

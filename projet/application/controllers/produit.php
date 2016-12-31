@@ -93,14 +93,16 @@ class Produit extends CI_Controller
     }
     public function recherche()
     {
+
         $this->load->model("Gestion_produit");
+        $data['categorie'] = $this->Gestion_produit->read_categorie_produit();
 
         $id=$this->input->post('identifiant');
 
         $data['produit'] = $this->Gestion_produit->recherche_produits($id);
 
-        $this->load->view('header');
-        $this->load->view('recherche',$data);
+        $this->load->view('header',$data);
+        $this->load->view('index',$data);
         $this->load->view('footer');
 
     }
