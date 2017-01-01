@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Ven 30 Décembre 2016 à 19:54
+-- Généré le :  Dim 01 Janvier 2017 à 17:42
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -40,8 +40,7 @@ CREATE TABLE `boutique` (
 
 INSERT INTO `boutique` (`ID_BOUTIQUE`, `ID_CLIENT`, `NOM_BOUTIQUE`, `DATE_CRIATION`, `DESCRIPTION_BOUT`) VALUES
 (1, 1, 'velgdmsm', 'dxdddddddddddddddddddddddddddddddddddd', '2016-12-27'),
-(2, 1, 'mmmmmmmmmmmmmmmmmmmm', 'jjjjjjjjjjjjjjjjjjjjjjj', '2016-12-28'),
-(6, 4, 'ffffffffffffff', 'ssssssssssssssssssssssssss', '2016-12-30');
+(2, 1, 'mmmmmmmmmmmmmmmmmmmm', 'jjjjjjjjjjjjjjjjjjjjjjj', '2016-12-28');
 
 -- --------------------------------------------------------
 
@@ -184,7 +183,7 @@ ALTER TABLE `produits`
 -- AUTO_INCREMENT pour la table `boutique`
 --
 ALTER TABLE `boutique`
-  MODIFY `ID_BOUTIQUE` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `ID_BOUTIQUE` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT pour la table `categories`
 --

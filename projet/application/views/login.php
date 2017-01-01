@@ -74,7 +74,7 @@ if (isset($message_display)) {
                     </div>
 
 
-                <input type="submit" value=" Login " name="submit" class="btn btn-succes"/><br/>
+                <input type="submit" value=" connexion " name="submit" class="btn btn-succes"/><br/>
 
 
                 <a href="<?php echo base_url() ?>Main/register">Cliquez ici pour s'inscrire</a>
