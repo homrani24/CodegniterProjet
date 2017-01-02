@@ -42,7 +42,14 @@ class Cart extends CI_Controller {
 	}
 	
 	function remove($rowid) {
-		if ($rowid=="all"){
+        if ($rowid=="logout"){
+            $this->cart->destroy();
+            $data['message_display'] = 'Déconnexion réussie';
+
+            $this->load->view('login', $data);
+
+        }
+		else if ($rowid=="all"){
 			$this->cart->destroy();
 		}else{
 			$data = array(

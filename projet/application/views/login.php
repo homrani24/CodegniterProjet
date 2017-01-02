@@ -23,7 +23,8 @@
     ?>
 
 </head>
-<body>
+
+<body >
 <?php
 if (isset($logout_message)) {
     echo "<div class='message'>";

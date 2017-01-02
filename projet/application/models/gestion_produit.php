@@ -103,9 +103,30 @@ Class Gestion_produit extends CI_Model
             return false;
         }
     }
+
+// Lire les données de la base de données pour afficher les données dans la page d'administration
+    public function show_produits_modifier($id) {
+
+        $condition = "ID_PROD = " . $id ;
+        $this->db->select('*');
+        $this->db->from('produits');
+        // $this->db->join('categories', 'produits.ID_CAT = categories.ID_CAT');
+        $this->db->where($condition);
+        $query = $this->db->get();
+
+        if ($query->num_rows() >= 1) {
+            return $query->result_array();
+        } else {
+            return false;
+        }
+    }
     function delete_produit($id){
         $this->db->where('ID_PROD', $id);
         $this->db->delete('produits');
+    }
+    function update_produit($id,$data){
+        $this->db->where('ID_PROD', $id);
+        $this->db->update('produits', $data);
     }
 
 

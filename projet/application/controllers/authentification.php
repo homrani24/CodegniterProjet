@@ -38,11 +38,11 @@ Class Authentification extends CI_Controller
 // Vérifier la validation les données entrées par l'utilisateur
         $this->form_validation->set_rules('nom', 'Nom d\'utilisateur', 'trim|required|xss_clean');
         $this->form_validation->set_rules('prenom', 'Prenom d\'utilisateur', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('adresse', 'Nom d\'utilisateur', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('adresse', 'adresse', 'trim|required|xss_clean');
         $this->form_validation->set_rules('email_value', 'Email', 'trim|required|xss_clean');
         $this->form_validation->set_rules('password', 'Mot de passe', 'trim|required|xss_clean');
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('login');
+            $this->load->view('register');
         } else {
 
             $data = array(
@@ -137,8 +137,12 @@ Class Authentification extends CI_Controller
             'username' => ''
         );
         $this->session->unset_userdata('logged_in', $sess_array);
-        $data['message_display'] = 'Déconnexion réussie';
-        $this->load->view('login', $data);
+//        $data['message_display'] = 'Déconnexion réussie';
+
+
+      //  $this->load->view('login', $data);
+        redirect("cart/remove/logout");
+
     }
 }
 

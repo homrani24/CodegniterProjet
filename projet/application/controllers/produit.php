@@ -24,15 +24,27 @@ class Produit extends CI_Controller
         $this->load->view('footer', $data);
     }
 
+
     public function produits_show($id)
+    {
+        $this->load->model("Gestion_produit");
+        $data['categorie'] = $this->Gestion_produit->read_categorie_produit();
+        $data['produit'] = $this->Gestion_produit->show_produits($id);
+
+
+        $this->load->view('header', $data);
+        $this->load->view('ajouter_produit', $data);
+        $this->load->view('footer', $data);
+    }
+
+    public function modifier_form($id)
     {
 
         $this->load->model("Gestion_produit");
         $data['categorie'] = $this->Gestion_produit->read_categorie_produit();
-        $data['produit'] = $this->Gestion_produit->show_produits($id);
-        $data['identifiant']=$id;
+        $data['produit'] = $this->Gestion_produit->show_produits_modifier($id);
         $this->load->view('header',$data);
-        $this->load->view('index',$data);
+        $this->load->view('modifier_produit',$data);
         $this->load->view('footer');
 
     }
@@ -42,11 +54,20 @@ class Produit extends CI_Controller
     {
 
 // Vérifier la validation les données entrées par l'utilisateur
-        $this->form_validation->set_rules('nom', 'Nom d\'utilisateur', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('prix', 'Prenom d\'utilisateur', 'trim|required|xss_clean');
-        $this->form_validation->set_rules('description', 'Email', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('nom', 'Nom produit', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('prix', 'prix produit', 'trim|required|xss_clean');
+       // $this->form_validation->set_rules('picture', 'photo', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('categorie', 'categorie', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('description', 'description', 'trim|required|xss_clean');
+
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('login');
+            $this->load->model("Gestion_produit");
+
+            $data['categorie'] = $this->Gestion_produit->read_categorie_produit();
+
+            $this->load->view('header',$data);
+            $this->load->view('ajouter_produit');
+            $this->load->view('footer');
         } else {
             if (!empty($_FILES['picture']['name'])) {
                 $config['upload_path'] = 'uploads/images/';
@@ -83,6 +104,86 @@ class Produit extends CI_Controller
             }
         }
     }
+// modifier produit
+
+// Valider et stocker les données d'enregistrement dans la base de données
+    public function modifier_produit($id)
+    {
+
+// Vérifier la validation les données entrées par l'utilisateur
+        $this->form_validation->set_rules('nom', 'Nom produit', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('prix', 'prix produit', 'trim|required|xss_clean');
+        // $this->form_validation->set_rules('picture', 'photo', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('categorie', 'categorie', 'trim|required|xss_clean');
+        $this->form_validation->set_rules('description', 'description', 'trim|required|xss_clean');
+
+        if ($this->form_validation->run() == FALSE) {
+
+            redirect('produit/modifier_form/'.$id);
+
+        } else {
+
+
+
+
+            if (!empty($_FILES['picture']['name'])) {
+                $config['upload_path'] = 'uploads/images/';
+                $config['allowed_types'] = 'jpg|jpeg|png|gif';
+                $config['file_name'] = $_FILES['picture']['name'];
+
+                //Load upload library and initialize configuration
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+
+                if (!$this->upload->do_upload('picture')) {
+                    echo $this->upload->display_errors();
+                } else {
+                    $file_data = $this->upload->data();
+
+                    $data = array(
+                        'ID_CAT' => $this->input->post('categorie'),
+                        'NOM_PROD' => $this->input->post('nom'),
+                        'PRIX' => $this->input->post('prix'),
+                        'DESCRIPTION_PD' => $this->input->post('description'),
+                        'PICTURE_PD' => $file_data['file_name']
+                    );
+                    $result = $this->gestion_produit->update_produit($id,$data);
+
+                    if ($result == TRUE) {
+                        //   $data['message_display'] = 'modification ruesiter !';
+                        redirect('produit/modifier_form/'.$id);
+
+                    } else {
+                        redirect('produit/modifier_form/'.$id);
+
+                        //   $data['message_display'] = 'Nom d\'utilisateur existe déjà!';
+                    }
+                }
+            }
+            else{
+
+                $data = array(
+                    'ID_CAT' => $this->input->post('categorie'),
+                    'NOM_PROD' => $this->input->post('nom'),
+                    'PRIX' => $this->input->post('prix'),
+                    'DESCRIPTION_PD' => $this->input->post('description')
+                );
+                $result = $this->gestion_produit->update_produit($id,$data);
+
+                if ($result == TRUE) {
+                    //   $data['message_display'] = 'modification ruesiter !';
+                    redirect('produit/modifier_form/'.$id);
+
+                } else {
+                    redirect('produit/modifier_form/'.$id);
+
+                    //   $data['message_display'] = 'Nom d\'utilisateur existe déjà!';
+                }    
+            }
+            
+            }
+        }
+
 
 // Valider et stocker les données d'enregistrement dans la base de données
     public function supp_produit($id)

@@ -6,7 +6,7 @@
 <script>
 function clear_cart() {
 	var result = confirm('Voulez-vous vraiment effacer toutes les réservations?');
-	
+
 	if(result) {
 		window.location = "<?php echo base_url(); ?>cart/remove/all";
 	}else{

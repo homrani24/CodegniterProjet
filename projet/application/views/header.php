@@ -64,21 +64,6 @@
             <a href="#" class="header-gopersonal"></a>
             <ul>
                 <li>
-                    <a href="message.html">Messages <span>12</span></a>
-                </li>
-                <li>
-                    <a href="#">Bookmarks <span>6</span></a>
-                </li>
-                <li>
-                    <a href="cart.html">Shopping Cart <span>5</span></a>
-                </li>
-                <li class="header-order">
-                    <a href="orders.html">Order Status</a>
-                </li>
-                <li>
-                    <a href="#">Modifier profile</a>
-                </li>
-                <li>
                     <a href="<?php
                     echo base_url('authentification/logout'); ?>">Log out</a>
                 </li>

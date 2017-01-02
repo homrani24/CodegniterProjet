@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Dim 01 Janvier 2017 à 17:42
+-- Généré le :  Lun 02 Janvier 2017 à 18:08
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -39,7 +39,7 @@ CREATE TABLE `boutique` (
 --
 
 INSERT INTO `boutique` (`ID_BOUTIQUE`, `ID_CLIENT`, `NOM_BOUTIQUE`, `DATE_CRIATION`, `DESCRIPTION_BOUT`) VALUES
-(1, 1, 'velgdmsm', 'dxdddddddddddddddddddddddddddddddddddd', '2016-12-27'),
+(1, 1, 'alenee', 'dxdddddddddddddddddddddddddddddddddddd', 'nomzer'),
 (2, 1, 'mmmmmmmmmmmmmmmmmmmm', 'jjjjjjjjjjjjjjjjjjjjjjj', '2016-12-28');
 
 -- --------------------------------------------------------
@@ -133,9 +133,12 @@ CREATE TABLE `produits` (
 --
 
 INSERT INTO `produits` (`ID_PROD`, `ID_BOUTIQUE`, `ID_CAT`, `NOM_PROD`, `PRIX`, `DESCRIPTION_PD`, `PICTURE_PD`) VALUES
-(17, 1, 1, 'mmmmmmmmm', '54', 'ùmmmmmmmmmmmmmm', '14570494_738727246274798_4935500502297881748_n.jpg'),
+(20, 1, 3, 'book', '90', 'ddfvsfs', 'book2.jpg'),
+(17, 1, 1, 'mmmmmmmmm', '54', 'aaaa', 'books1.jpg'),
 (16, 1, 4, 'dxdvxcj', '78', 'qqqqqqqqqqqqq', '14611061_1414060025297327_5916713295110377064_n.png'),
-(18, 6, 1, 'mmmmmmmmmmmmmmm', 'mmmmmmmmmmmmmm', 'mmmmmmmmmmmm', '14606339_738727129608143_1862068265155223757_n.jpg');
+(18, 6, 1, 'mmmmmmmmmmmmmmm', '85', 'mmmmmmmmmmmm', '14606339_738727129608143_1862068265155223757_n.jpg'),
+(19, 1, 1, 'kkkkkkkkkkk', '62', 'kkkkkkkkk', 'book21.jpg'),
+(21, 1, 3, 'aaaaaaaaa', '55', 'ddddddddddddd', 'books.jpg');
 
 --
 -- Index pour les tables exportées
@@ -183,7 +186,7 @@ ALTER TABLE `produits`
 -- AUTO_INCREMENT pour la table `boutique`
 --
 ALTER TABLE `boutique`
-  MODIFY `ID_BOUTIQUE` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID_BOUTIQUE` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT pour la table `categories`
 --
@@ -198,7 +201,7 @@ ALTER TABLE `client`
 -- AUTO_INCREMENT pour la table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `ID_PROD` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `ID_PROD` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -40,6 +40,29 @@ Class Gestion_boutique extends CI_Model
             return false;
         }
     }
+
+
+    public function read_boutique($id) {
+
+        $condition = "ID_BOUTIQUE =" . "'" . $id . "'";
+        $this->db->select('*');
+        $this->db->from('boutique');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
+    function update_boutiquet($id,$data){
+        $this->db->where('ID_BOUTIQUE', $id);
+        $this->db->update('boutique', $data);
+    }
+
 }
 //
 //End DWFE
