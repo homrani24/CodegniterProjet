@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 02 Janvier 2017 à 18:08
+-- Généré le :  Lun 09 Janvier 2017 à 18:13
 -- Version du serveur :  5.7.14
 -- Version de PHP :  5.6.25
 
@@ -83,7 +83,7 @@ CREATE TABLE `client` (
 --
 
 INSERT INTO `client` (`ID_CLIENT`, `NOM_CLIENT`, `PRENOM_CLIENT`, `ADRESSE_CLIENT`, `MAIL`, `MDP`) VALUES
-(1, 'homrani', 'mounir', 'Chemin Des Bateliers', 'mmm@mmm.mmm', '9de37a0627c25684fdd519ca84073e34'),
+(1, 'homrani', 'now', 'france', 'mmm@mmm.mmm', '9de37a0627c25684fdd519ca84073e34'),
 (2, 'dfwsddswsws', 'dwsfwsxfvwsx', 'fxdedfws', 'dfxxdgfmmm@mmm.mmm', '9de37a0627c25684fdd519ca84073e34'),
 (3, 'mounir', 'homrani', 'tunis', 'homrani24@hotmail.com', 'dbc4d84bfcfe2284ba11beffb853a8c4'),
 (4, 'sniper', 'mefdflm', 'fgdsdf', 'sniper@sniper.sniper', '1c27680133b781cadd037e8a6dcc001b');
@@ -134,7 +134,7 @@ CREATE TABLE `produits` (
 
 INSERT INTO `produits` (`ID_PROD`, `ID_BOUTIQUE`, `ID_CAT`, `NOM_PROD`, `PRIX`, `DESCRIPTION_PD`, `PICTURE_PD`) VALUES
 (20, 1, 3, 'book', '90', 'ddfvsfs', 'book2.jpg'),
-(17, 1, 1, 'mmmmmmmmm', '54', 'aaaa', 'books1.jpg'),
+(17, 1, 1, 'books', '54', 'aaaa', 'books1.jpg'),
 (16, 1, 4, 'dxdvxcj', '78', 'qqqqqqqqqqqqq', '14611061_1414060025297327_5916713295110377064_n.png'),
 (18, 6, 1, 'mmmmmmmmmmmmmmm', '85', 'mmmmmmmmmmmm', '14606339_738727129608143_1862068265155223757_n.jpg'),
 (19, 1, 1, 'kkkkkkkkkkk', '62', 'kkkkkkkkk', 'book21.jpg'),

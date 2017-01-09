@@ -23,7 +23,7 @@
     endif;
     ?>
     <meta charset="UTF-8">
-    <title>Motor</title>
+    <title>Vendre</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -63,6 +63,10 @@
         <div class="header-personal">
             <a href="#" class="header-gopersonal"></a>
             <ul>
+                <li>
+                <a href="<?php
+                echo base_url('authentification/modifier_user/'.$id); ?>">Editer profile</a>
+                </li>
                 <li>
                     <a href="<?php
                     echo base_url('authentification/logout'); ?>">Log out</a>

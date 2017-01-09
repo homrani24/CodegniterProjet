@@ -33,7 +33,7 @@ class Produit extends CI_Controller
 
 
         $this->load->view('header', $data);
-        $this->load->view('ajouter_produit', $data);
+        $this->load->view('index', $data);
         $this->load->view('footer', $data);
     }
 

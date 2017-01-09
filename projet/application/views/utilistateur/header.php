@@ -61,11 +61,11 @@
 
 
     <!-- Navmenu - start -->
-    <nav id="top-menu header_officiel" style="        margin-left: -141px;">
+    <nav id="top-menu header_officiel" style="        margin-left: -31px;">
         <ul>
             <li class="active">
                 <a href="<?php
-                echo base_url('main/acceuil'); ?>">Home</a>
+                echo base_url('main/acceuil'); ?>">Acceuil</a>
             </li>
 
             <li class="has-child">

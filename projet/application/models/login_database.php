@@ -71,6 +71,26 @@ Class Login_Database extends CI_Model {
 		}
 	}
 
+    function update_user($id,$data){
+        $this->db->where('ID_CLIENT', $id);
+        $this->db->update('client', $data);
+    }
+    public function read_user_information_id($id) {
+
+        $condition = "ID_CLIENT =" . "'" . $id . "'";
+        $this->db->select('*');
+        $this->db->from('client');
+        $this->db->where($condition);
+        $this->db->limit(1);
+        $query = $this->db->get();
+
+        if ($query->num_rows() == 1) {
+            return $query->result();
+        } else {
+            return false;
+        }
+    }
+
 }
 //End DWFE
 ?>
